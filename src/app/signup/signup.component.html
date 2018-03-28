@@ -1,0 +1,18 @@
+<mat-card class="card">
+    <mat-toolbar color="primary">
+      <span>Sign Up</span>        
+    </mat-toolbar>
+    <form (ngSubmit)="signup()" #signupForm="ngForm">
+        <div class="alert alert-warning alert-dismissible" role="alert" *ngIf="message !== ''">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            {{message}}
+        </div>
+        <mat-form-field class="example-full-width">
+            <input matInput type="email" placeholder="Email address" [(ngModel)]="signupData.username" name="username" required/>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput type="password" placeholder="Password" [(ngModel)]="signupData.password" name="password" required/>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!signupForm.form.valid">Sign Up</button>
+    </form>
+</mat-card>
